@@ -17,7 +17,7 @@ app.use(json());
 
 app.get("/parent", async (req, res) =>{
     try {
-        const allParents = await pool.query("SELECT * FROM parent");
+        const allParents = await pool.query('SELECT * FROM parent');
 
         res.json(allParents.rows);
     } catch (err) {

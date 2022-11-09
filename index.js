@@ -21,7 +21,7 @@ app.get("/parents", async (req, res) =>{
 
         res.json(allParents.rows);
     } catch (err) {
-        console.error(err.message);
+        console.log(err.message);
     }
 });
 

@@ -6,7 +6,7 @@ import pool from './db.js';
 const app = express();
 //const pool = require("./db");
 const PORT = process.env.PORT || 3000;
-const corsOptions = {origin:'*'}
+const corsOptions = {origin: process.env.URL || '*'};
 
 app.use(cors(corsOptions));
 app.use(json());
@@ -15,7 +15,7 @@ app.use(json());
 
 //get all parents
 
-app.get("/parent", async (req, res) =>{
+app.get("/parents", async (req, res) =>{
     try {
         const allParents = await pool.query('SELECT * FROM parent');
 
@@ -24,7 +24,7 @@ app.get("/parent", async (req, res) =>{
         console.log(err.message);
     }
 });
-
+/*
 //get a parent
 
 app.get("/parents/:id", async (req, res)=>{
@@ -88,7 +88,7 @@ app.delete("/parents/:id", async(req,res) =>{
 } );
 
 
-
+*/
 app.listen(PORT, () =>{
     console.log(`server is listening on port:${PORT}`);
 });

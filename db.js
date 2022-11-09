@@ -4,7 +4,7 @@ const {Pool} = pg;
 const poolconfig = process.env.DATABEAE_URL?{
     connectionString: process.env.DATABEAE_URL,
         ssl:{
-            rejectUnAuthorized: false
+            rejectUnauthorized: false
         } 
     }:
     {

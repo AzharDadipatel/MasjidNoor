@@ -10,4 +10,6 @@ CREATE TABLE parent(
 
 --heroku pg:psql
 
+--git push heroku master
+
 INSERT INTO parent (parent_id,parent_name,parent_phone_number) VALUES (1,'Azhar','07309099078');

@@ -1,10 +1,10 @@
 import pg from 'pg';
 const { Pool } = pg;
 
-const poolconfig = process.env.DATABEAE_URL?{
+const poolConfig = process.env.DATABEAE_URL?{
     connectionString: process.env.DATABEAE_URL,
         ssl:{
-            rejectUnauthorized : false,
+            rejectUnauthorized: false,
         } 
     }:
     {
@@ -28,5 +28,5 @@ const poolconfig = process.env.DATABEAE_URL?{
 //module.exports = pool;
 
 
-const pool = new Pool(poolconfig);
+const pool = new Pool(poolConfig);
 export default pool;

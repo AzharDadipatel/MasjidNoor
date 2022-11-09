@@ -1,4 +1,4 @@
-import express, {json} from 'express'
+import express, {json} from 'express';
 import cors from 'cors';
 import pool from './db.js';
 
@@ -9,13 +9,13 @@ const PORT = process.env.PORT || 3000;
 const corsOptions = {origin:'*'}
 
 app.use(cors(corsOptions));
-app.use(express.json());
+app.use(json());
 
 //ROUTES//
 
 //get all parents
 
-app.get("/parents", async (req, res) =>{
+app.get("/parent", async (req, res) =>{
     try {
         const allParents = await pool.query("SELECT * FROM parent");
 

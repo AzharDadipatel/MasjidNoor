@@ -12,4 +12,4 @@ CREATE TABLE parent(
 
 --git push heroku master
 
-INSERT INTO parent (parent_id,parent_name,parent_phone_number) VALUES (1,'Azhar','07309099078');
+INSERT INTO parent (parent_id,parent_name,parent_phone_number) VALUES (2,'Asjad','07309099078');

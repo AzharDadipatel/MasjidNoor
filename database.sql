@@ -8,4 +8,6 @@ CREATE TABLE parent(
     parent_phone_number VARCHAR
 );
 
---heroku pg:cd "C:\Program Files\PostgreSQL\15\bin>"
+--heroku pg:psql
+
+INSERT INTO parent (parent_id,parent_name,parent_phone_number) VALUES (1,'Azhar','07309099078');

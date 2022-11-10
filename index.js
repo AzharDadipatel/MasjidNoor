@@ -17,14 +17,14 @@ app.use(json());
 
 app.get('/parents', async (req, res) =>{
     try {
-        const allParents = await pool.query('SELECT * FROM parent');
+        const allParents = await pool.query('SELECT*FROM parent');
 
         res.json(allParents.rows);
     } catch (err) {
         console.log(err.message);
     }
 });
-/*
+
 //get a parent
 
 app.get("/parents/:id", async (req, res)=>{
@@ -88,7 +88,7 @@ app.delete("/parents/:id", async(req,res) =>{
 } );
 
 
-*/
+
 app.listen(PORT, () =>{
     console.log(`server is listening on port:${PORT}`);
 });

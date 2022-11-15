@@ -42,11 +42,11 @@ app.get("/parents/:id", async (req, res)=>{
 
 app.post("/parents", async(req, res) => {
     try{
-        //const {parent_id} = req.body;
+        const {parent_id} = req.body;
         const { parent_name } = req.body;
         const { parent_phone_number } = req.body;
 
-        const newParent = await pool.query("INSERT INTO parent (parent_name,parent_phone_number) VALUES ($1,$2) RETURNING *",[parent_name,parent_phone_number]);
+        const newParent = await pool.query("INSERT INTO parent (parent_id,parent_name,parent_phone_number) VALUES ($1,$2,$3) RETURNING *",[parent_id,parent_name,parent_phone_number]);
         //const newParent_phone_number = await pool.query("INSERT INTO parent (parent_phone_number) VALUES ($1) RETURNING *",[Parent_phone_number]);
 
         res.json(newParent.rows[0]);

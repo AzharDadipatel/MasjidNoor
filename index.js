@@ -42,11 +42,14 @@ app.get("/parents/:id", async (req, res)=>{
 
 app.post("/parents", async(req, res) => {
     try{
+
         const {parent_id} = req.body;
         const { parent_name } = req.body;
         const { parent_phone_number } = req.body;
+        
 
         const newParent = await pool.query("INSERT INTO parent (parent_id,parent_name,parent_phone_number) VALUES ($1,$2,$3) RETURNING *",[parent_id,parent_name,parent_phone_number]);
+
         //const newParent_phone_number = await pool.query("INSERT INTO parent (parent_phone_number) VALUES ($1) RETURNING *",[Parent_phone_number]);
 
         res.json(newParent.rows[0]);
@@ -56,6 +59,53 @@ app.post("/parents", async(req, res) => {
         console.error(err.message);
     }
 });
+
+/*
+
+const parents =  [
+    {
+      parent_id: 5,
+      parent_name: "Muhammad Saihaan Navsarka",
+      parent_phone_number: "07894980010"
+    },
+    {
+      parent_id: 6,
+      parent_name: "Umar Mohmed",
+      parent_phone_number: "07594778368"
+    }
+   ]
+   app.get('/api/parents', (req, res)=> res.send(parents))
+
+*/
+ 
+
+   /*
+app.post("/parents", async(req, res) => {
+    try{
+        const {parent_id} = req.body;
+        const { parent_name } = req.body;
+        const { parent_phone_number } = req.body;
+
+        await fetch(`http://192.168.0.11:3000/parents`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+        });
+        //const newParent_phone_number = await pool.query("INSERT INTO parent (parent_phone_number) VALUES ($1) RETURNING *",[Parent_phone_number]);
+        res.json(newParent.rows[0]);
+    
+        //res.json(newParent_phone_number.rows[0]);
+
+    } catch (err){
+        console.error(err.message);
+    }});        
+
+    */
+
+
+
+
+              
 
 //update a parent 
 
